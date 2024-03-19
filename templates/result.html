@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .document {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .rank {
+            font-weight: bold;
+            color: #333;
+            font-size: 18px;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .no-documents {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Result</h1>
+        {% if ranked_documents %}
+            <ul>
+                {% for rank, document in ranked_documents %}
+                    <li class="document">
+                        <span class="rank">Rank: {{ rank }}</span><br>
+                        <div class="content">{{ document }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-documents">No documents found</p>
+        {% endif %}
+    </div>
+</body>
+</html>
