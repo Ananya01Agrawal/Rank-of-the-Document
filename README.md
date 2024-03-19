@@ -1,2 +1,2 @@
-# Rank of the Dicument
+# Rank of the Document
  
